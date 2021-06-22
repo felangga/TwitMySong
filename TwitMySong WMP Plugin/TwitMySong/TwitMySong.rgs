@@ -1,0 +1,34 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {EC14E9EB-C1AB-4610-B818-E093CC472A9B} = s 'TwitMySong Class'
+		{
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+		}
+	}
+}
+HKEY_LOCAL_MACHINE
+{
+    NoRemove SOFTWARE
+    {
+        NoRemove Microsoft
+        {
+            NoRemove MediaPlayer
+            {
+                NoRemove UIPlugins
+                {
+                    ForceRemove {EC14E9EB-C1AB-4610-B818-E093CC472A9B}
+                    {
+                        val FriendlyName = s 'res://TwitMySong.dll/RT_STRING/#102'
+                        val Description = s 'res://TwitMySong.dll/RT_STRING/#103'
+                        val Capabilities = d '3758096385'
+                    }
+                }
+            }
+        }
+    }
+}

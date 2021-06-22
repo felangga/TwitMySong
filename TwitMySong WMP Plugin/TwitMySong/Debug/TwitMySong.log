@@ -1,0 +1,30 @@
+﻿Build started 01/07/2013 19:43:25.
+     1>Project "C:\Users\fcomputer\Dropbox\Projects\TwitMySong\TwitMySong WMP Plugin\TwitMySong\TwitMySong.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\TwitMySong.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       ResourceCompile:
+         All outputs are up-to-date.
+       Link:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\fcomputer\Dropbox\Projects\TwitMySong\TwitMySong WMP Plugin\Debug\TwitMySong.dll" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /DEF:"TwitMySong.def" /MANIFEST /ManifestFile:"Debug\TwitMySong.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\fcomputer\Dropbox\Projects\TwitMySong\TwitMySong WMP Plugin\Debug\TwitMySong.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /BASE:"254803968" /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\fcomputer\Dropbox\Projects\TwitMySong\TwitMySong WMP Plugin\Debug\TwitMySong.lib" /MACHINE:X86 /DLL Debug\TwitMySong.res
+         Debug\StdAfx.obj
+         Debug\TwitMySong.obj
+         Debug\TwitMySongdll.obj
+         Debug\TwitMySongevents.obj
+         LINK : C:\Users\fcomputer\Dropbox\Projects\TwitMySong\TwitMySong WMP Plugin\Debug\TwitMySong.dll not found or not built by the last incremental link; performing full link
+            Creating library C:\Users\fcomputer\Dropbox\Projects\TwitMySong\TwitMySong WMP Plugin\Debug\TwitMySong.lib and object C:\Users\fcomputer\Dropbox\Projects\TwitMySong\TwitMySong WMP Plugin\Debug\TwitMySong.exp
+         TwitMySong.vcxproj -> C:\Users\fcomputer\Dropbox\Projects\TwitMySong\TwitMySong WMP Plugin\Debug\TwitMySong.dll
+       Manifest:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\fcomputer\Dropbox\Projects\TwitMySong\TwitMySong WMP Plugin\Debug\TwitMySong.dll;#2" /manifest Debug\TwitMySong.dll.intermediate.manifest
+       RegisterOutput:
+         regsvr32 /s "C:\Users\fcomputer\Dropbox\Projects\TwitMySong\TwitMySong WMP Plugin\Debug\TwitMySong.dll"
+       FinalizeBuildStatus:
+         Deleting file "Debug\TwitMySong.unsuccessfulbuild".
+         Touching "Debug\TwitMySong.lastbuildstate".
+     1>Done Building Project "C:\Users\fcomputer\Dropbox\Projects\TwitMySong\TwitMySong WMP Plugin\TwitMySong\TwitMySong.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:07.90

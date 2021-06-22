@@ -1,0 +1,381 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>TIEHTTP - The Internet Explorer HTTP/HTTPS GET/POST component</title>
+<style>
+<!--
+body       { font-family: Arial; font-size: 10pt }
+td         { font-family: Arial; font-size: 10pt }
+-->
+</style>
+</head>
+
+<body>
+
+<table border="1" cellpadding="0" cellspacing="10" style="border-collapse: collapse" bordercolor="#111111" width="750" id="AutoNumber1">
+  <tr>
+    <td width="100%" bgcolor="#F4F4F4">
+<p><font size="3" face="Arial Black"><b><br>
+  TIEHTTP - The Internet Explorer 
+HTTP/HTTPS GET/POST component<br>
+&nbsp;</b></font></p>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="70%" id="table2" bordercolorlight="#C0C0C0" bordercolordark="#808080">
+  <tr>
+    <td width="138" bgcolor="#000000"><font color="#FFFFFF">&nbsp;Author: </font>
+    </td>
+    <td>&nbsp;Kyriacos Michael</td>
+  </tr>
+  <tr>
+    <td width="138" bgcolor="#000000"><font color="#FFFFFF">&nbsp;Latest Update:</font></td>
+    <td>&nbsp;30/Apr/2008</td>
+  </tr>
+  <tr>
+    <td width="138" bgcolor="#000000"><font color="#FFFFFF">&nbsp;Version:
+    </font></td>
+    <td>&nbsp;1.5.0.65</td>
+  </tr>
+  <tr>
+    <td width="138" bgcolor="#000000"><font color="#FFFFFF">&nbsp;Supported Platforms:
+    </font></td>
+    <td>&nbsp;Delphi 6, Delphi 7, Delphi 2005, Delphi 2006, Delphi 2007</td>
+  </tr>
+  <tr>
+    <td width="138" bgcolor="#000000"><font color="#FFFFFF">&nbsp;License:
+    </font></td>
+    <td>&nbsp;Freeware (*)</td>
+  </tr>
+  <tr>
+    <td width="138" bgcolor="#000000"><font color="#FFFFFF">&nbsp;Source Code:
+    </font></td>
+    <td>&nbsp;included</td>
+  </tr>
+</table>
+<p>(*) Free for either commercial or non-commercial use. No need to add any 
+kind of references for the component.</p>
+<p>Component home: <a href="http://www.myfxboard.com/tiehttp/">
+http://www.myfxboard.com/tiehttp/</a>
+<br>
+Download: <a href="http://www.myfxboard.com/tiehttp/TIE_http_https_build_065.rar">
+http://www.myfxboard.com/tiehttp/TIE_http_https_build_065.rar</a> </p>
+<p><font face="Arial Black">Description:</font></p>
+<blockquote>
+<p>This component uses the IE's HTTP / HTTPS mechanism to connect to a web 
+server and perform GET or POST operations, (either multipart or urlencoded).</p>
+<p>It supports content decompression, invalid or expired https certificates, and 
+uses the existing proxy settings for the current connection so 
+the only thing you will need is to set the URL and call the execute method.</p>
+<p>It also supports unicode, and can automatically convert from UTF-8, UTF-16 and ANSI encodings<br>
+  &nbsp;</p>
+</blockquote>
+<p><font face="Arial Black">Installation Instructions:</font></p>
+<blockquote>
+<p>Unzip the files in a directory that is accessible by the &quot;source paths&quot; in 
+the project options. Open TIE_http_https.dpk and click install. You will find 
+the new TIEHTTP component under the &quot;Internet&quot; tab of the Delphi component 
+palette. </p>
+<p>If you  want gzip decompression you will need to add the path gunzip\source\ in your library paths.<br>
+  Otherwise you can disable gzip in iiehttp3_funcs.pas by changing <br>
+  {$DEFINE TIEHTTP_GUNZIP} to {x$DEFINE TIEHTTP_GUNZIP}  &nbsp;</p>
+</blockquote>
+<p><font face="Arial Black">Properties:</font></p>
+<blockquote>
+  <p><b>URL: </b>A full URL to be used in a GET or POST operation. You may use a 
+  complete URL including the protocol, port, server name, script name and 
+  parameters, all in one line, exactly as you can find it in the address bar or 
+  IE. </p>
+  <p>If you would like to connect to a secure server just prefix the server name 
+  with &quot;https://&quot;. Otherwise the default &quot;http://&quot; will be automatically used. 
+  As simple as that.</p>
+  <p><b>Request Method:</b> Either a GET or POST method.</p>
+  <p><b>Request_Headers</b>: <b><font color="#FF0000">(new)</font></b> A 
+  TStringList that accepts extra headers to be sent to the server.</p>
+  <p>e.g. to change the Referer header:<br>
+  <font face="Courier New">request_headers.Add('Referer: http://xxx');</font></p>
+  <p><b>Multipart POST:</b> Whether to use a &quot;multipart&quot; or &quot;urlencoded&quot; content 
+  type. By setting multipartPOST to true, the &quot;Request Method&quot; is automatically 
+  set to POST.</p>
+  <p><b>GetStr:</b> A variables' list in the form of &quot;var1=1&amp;var2=2&amp;var3=3&quot; that 
+  will be forced to be passed in the URL even if the Request Method is set to 
+  true;</p>
+  <p><b>PostStr:</b> A variables' list in the same form as with GetStr that will 
+  be posted to the server. These variables will be automatically converted to 
+  multipart it the MultipartPOST option is enabled.</p>
+  <p><b>result_sl: </b>A TStringList variable that holds the text-only results (such as 
+  the html text) retrieved from the server after an Execute method has been 
+  performed. Another alias for this is simply &quot;sl&quot;.<br>
+  <br>
+  <b>result_ms:</b> A TMemoryStream holding the web server reply in binary 
+  format.</p>
+  <p><b>username/password:</b> http/https authentication information</p>
+  <p><b>contentsize:</b> The size of the content to be received. The 
+  availability of this information depends on the location you access. If it is 
+  an asp or php script the web server may not be able to determine the size of 
+  the response.</p>
+  <p><b>total_bytes_read:</b> Total byres read. Can be used in the OnPacketRead 
+  event with the contentsize property to display the download progress of a 
+  lengthy response.</p>
+  <p><b>timeout: <font color="#FF0000">(new)</font></b> Specifies a timeout 
+  interval in seconds. If there is no download activity during that interval the 
+  component will stop processing the request. The counter gets reset whenever 
+  there is download activity.</p>
+  <p><b>TimerIntervalSeconds</b>: <b> <font color="#FF0000">(new) </font></b>
+  Specifies the number of seconds that will cause the OnTimer event to fire.</p>
+  <p><b>BlockingMode:</b> <b><font color="#FF0000">(new) </font></b>Set this to 
+  false to be able to cancel requests.</p>
+  <p>If blocking mode is set to true (Default) you will not be able to interact 
+  with your application, until the component finishes downloading the entire 
+  content from the server. Non-blocking mode allows you have a &quot;cancel&quot; button 
+  that will call ie1.StopRequest in order to force the component to stop the 
+  communication.</p>
+  <p><b>proxy_username</b> / <b>proxy_password</b>: <b><font color="#FF0000">(new) </font></b>
+  Login information for basic proxy authentication</p>
+  <p><br>
+&nbsp;</p>
+</blockquote>
+<p><font face="Arial Black">Methods</font></p>
+<blockquote>
+  <p><b>Execute:</b> This will use the current URL to perform a GET or POST 
+  operation.</p>
+  <p><b>ExecuteURL:</b> The same as above, except you can set the URL directly 
+  here.</p>
+  <p><b>AddMultipartVar:</b> Adds a variable to be posted in multipart format. 
+  You will need to set the MultipartPOST property to true before adding 
+  variables.</p>
+  <p><b>AddMultipartFile(variable: string, filename: string):</b> <br>
+  Loads the specified file from the disk, performs a base64 encoding, and sets 
+  the necessary headers to be transferred.</p>
+  <p><b>AddMultipartStream(variable: string, ms: TMemoryStream):</b> <br>
+  Encodes the stream's contents based on the base64 algorithm and prepares the 
+  stream for upload. </p>
+  <p><b>StopRequest:</b> <b><font color="#FF0000">(new) </font></b>Forces the 
+  component to stop the current request. You must have &quot;blockingMode&quot; set to <b>
+  false</b>, in order to be able to use this method.<b><br>
+&nbsp;</b></p>
+</blockquote>
+<p><font face="Arial Black">Events</font></p>
+<blockquote>
+  <p><b>OnPacketRead:</b> Fires when 4k bytes of data have been read, and can be used to 
+  update a ProgressBar conrol to show the status of the download.</p>
+  <p><b>OnTimer:</b> Fires every time the period specified in 
+  TimerIntervalSeconds, elapses.</p>
+  <p>&nbsp;</p>
+</blockquote>
+<p><font face="Arial Black">Examples</font></p>
+<blockquote>
+  <p><b>1. Simple GET<br>
+  <br>
+  </b>The following example will use the GET method (default if none specified) 
+  to fetch the contents of the given url</p>
+  <p><font face="Courier New">ie1.ExecuteURL('http://www.myserver.com/script1.php?var1=1');<br>
+  showmessage(ie1.sl.text); //show the results<br>
+&nbsp;</font></p>
+  <p><b>2. Simple POST<br>
+  <br>
+  </b>The following example will use the POST method&nbsp; to post the var1 
+  variable to the given URL. Note that the transport mechanism will not pass the 
+  var1 in the URL string, because we have selected the POST method.</p>
+  <p><font face="Courier New">ie1.RequestMethod := 'POST';<br>
+  ie1.ExecuteURL('http://www.myserver.com/script1.php?var1=1');</font></p>
+  <p>Important note: default vars always use the default request method<br>
+&nbsp;</p>
+  <p><b>3. Post using variables in both the URL and POST contexts<br>
+  <br>
+  </b>This example will actually post the put_this_on_the_url variable on the 
+  url, and var1 on the POST context. The reason is that by selecting POST any 
+  default variables passed, that are not explicitly defined as &quot;get variables&quot; 
+  are posted normally.</p>
+  <p><font face="Courier New">ie1.RequestMethod := 'POST';<br>
+  ie1.GetStr := 'put_this_on_the_url=1';<br>
+  ie1.ExecuteURL('http://www.myserver.com/script1.php?var1=1');</font></p>
+  <p><br>
+  <b>4a. Multipart Post<br>
+  <br>
+  </b>This example will post var1, var2 and var2 in a multipart form. Multipart 
+  allows for the submission of huge contents for example texts. To submit binary 
+  content see examples 4b and 4c</p>
+  <p><font face="Courier New">ie1.RequestMethod := 'POST'; //not necessary since 
+  the next line will default to POST<br>
+  ie1.MultipartPOST := true;&nbsp;&nbsp; //this will anyway set request method 
+  to post<br>
+  ie1.PostStr := 'var2=2';<br>
+  ie1.AddMultipartVar('var3' , '3');<br>
+  ie1.ExecuteURL('http://www.myserver.com/script1.php?var1=1');<br>
+  <br>
+  &nbsp;</font></p>
+  <p>
+  <b>4b. Multipart Post / File Upload<br>
+  <br>
+  </b>This example will post the image &quot;c:\image1.jpg&quot; 
+  to the server, where it will be handled by a php script. Note that the 
+  filename is not being transferred. If you will need to transfer the file, 
+  create an extra variable with the image filename.</p>
+  <p><font face="Courier New">ie1.MultipartPOST := true;&nbsp;&nbsp; //this will anyway set request method 
+  to post<br>
+  ie1.AddMultipartVar('filename' , 'image1.jpg');<br>
+  ie1.AddMultipartFile('image' , 'c:\image1.jpg');<br>
+  ie1.ExecuteURL('http://www.myserver.com/upload_handler.php');<br>
+  &nbsp;</font></p>
+  <p>The PHP handler script can be like this:</p>
+  <p><font face="Courier New">&lt;?<br>
+  //Delphi TIEHTTP has registered variables $filename and $image up to here<br>
+  <br>
+  //decode the base64 encoded variable<br>
+  $bin = base64_decode($image);<br>
+  <br>
+  //make sure you have write permissions in this folder<br>
+  $fp = fopen($filename, &quot;w&quot;);<br>
+  fputs($fp, $bin);<br>
+  close($fp);<br>
+  <br>
+  //that's it<br>
+  ?&gt;</font></p>
+  <p><b><br>
+  5. HTTP(S) Authorization<br>
+  <br>
+  </b>The following example will retrieve a page from a web server that is 
+  configured to require HTTP(S) authentication..<br>
+  <br>
+  <font face="Courier New">ie1.username := 'user1';<br>
+  ie1.password := '*****';<br>
+  ie1.ExecuteURL('https://www.myserver.com/index.php');<br>
+  </font><br>
+  <br>
+  <b>6. Download a file<br>
+  </b>
+  <br>
+  This will download an image from a web location and save it to disk.<br>
+  <br>
+  <font face="Courier New">ie1.ExecuteURL('http://www.myserver.com/image1.jpg');<br>
+  ie1.result_ms.SaveToFile('c:\image1.jpg');</font></p>
+  <p>If you want feedback on the download progress add a TLabel component on a 
+  form and add this code on the OnPacketRead event:<br>
+  <br>
+  label1.Caption := ie1.GetStringPercentage; <br>
+&nbsp;</p>
+  <p><b>7. More examples<br>
+  <br>
+  </b>Examples 1a and 1b are identical. Var1 will be a POST variable rather than 
+  a GET one.<br>
+  <br>
+  <font face="Courier New">example 1a<br>
+  <br>
+  ie1.RequestMethod := 'POST';<br>
+  ie1.ExecuteURL('http://www.myserver.com/script1.php?var1=1'); </font>
+  //default variables always use the default request method</p>
+  <p><font face="Courier New">example 1b<br>
+  <br>
+  ie1.RequestMethod := 'POST';<br>
+  ie1.PostStr := 'var1=1';<br>
+  ie1.ExecuteURL('http://www.myserver.com/script1.php');<br>
+  <br>
+  ---<br>
+  <br>
+  </font>Examples 2a and 2b are also identical. Var1 will be a GET variable 
+  rather than a POST one.</p>
+  <p><font face="Courier New">example 2a:<br>
+  <br>
+  ie1.RequestMethod := 'GET'; //optional<br>
+  ie1.ExecuteURL('http://www.myserver.com/script1.php?var1=1');</font></p>
+  <p><font face="Courier New">example 2b:<br>
+  <br>
+  ie1.RequestMethod := 'GET'; //optional<br>
+  ie1.GetStr := 'var1=1';<br>
+  ie1.ExecuteURL('http://www.myserver.com/script1.php');</font></p>
+  <p><font face="Courier New">---<br>
+  <br>
+  </font>Examples 3a, 3b and 3c are also identical. Var1 will be a multipart 
+  POST variable 
+  rather than a urlencoded POST one.</p>
+  <p><font face="Courier New">example 3a:<br>
+  <br>
+  ie1.RequestMethod := 'POST'; //not necessary<br>
+  ie1.MultipartPOST := true;&nbsp;&nbsp; //this will anyway set request method 
+  to post<br>
+  ie1.ExecuteURL('http://www.myserver.com/script1.php?var1=1');</font></p>
+  <p><font face="Courier New">example 3b:<br>
+  <br>
+  ie1.MultipartPOST := true; //will anyway set request method to post<br>
+  ie1.PostStr := 'var1=1';<br>
+  ie1.ExecuteURL('http://www.myserver.com/script1.php');</font></p>
+  <p><font face="Courier New">example 3c:<br>
+  <br>
+  ie1.MultipartPOST := true; //will anyway set request method to post<br>
+  ie1.AddMultipartVar('var1' , '1');<br>
+  ie1.ExecuteURL('http://www.myserver.com/script1.php');</font></p>
+</blockquote>
+<p><font face="Arial Black">Change Log</font></p>
+<blockquote>
+<table  border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="83%" id="table1" bordercolorlight="#C0C0C0" bordercolordark="#808080">
+  <tr>
+    <td>build 62: 24/Apr/2008<br>
+      &nbsp;- unicode improvements<br>
+      &nbsp;- automatic detection of utf-8, utf-16, ansi encoding<br>
+      &nbsp;- allows uploading binary files, without the need for Base64-Encoding</td>
+  </tr>
+  <tr>
+    <td>build 48: 22/Oct/2006<br>
+      &nbsp;- added support for ie7<br></td>
+  </tr>
+  <tr>
+    <td>build 46: 14/Nov/2005<br>
+    &nbsp;-fixed onpacketread in non-blocking mode<br>
+&nbsp;-added onTimer event and timerIntervalSeconds property<br>
+&nbsp;</td>
+  </tr>
+  <tr>
+    <td>build 44: 03/Sep/2004<br>
+    &nbsp;- fixed some bugs in the timout/onpacketread mechanism<br>
+&nbsp;- basic proxy authentication support<br>
+&nbsp;- request_header property e.g. if you want to set &quot;Referer:&quot;<br>
+&nbsp;</td>
+  </tr>
+  <tr>
+    <td>build 43: 11/Aug/2004<br>
+    - fixed bug that was not allowing postStr, getStr to be set.<br>
+&nbsp;</td>
+  </tr>
+  <tr>
+    <td>build 42: 17/Jun/2004<br>
+    - fixed bug that avoids you to reuse the component after a timeout or a 
+    cancel request<br>
+&nbsp;</td>
+  </tr>
+  <tr>
+    <td>build 41: 18/May/2004<br>
+    - fixed bug introduced in build 40<br>
+&nbsp;</td>
+  </tr>
+  <tr>
+    <td>build 40 : 17/May/2004<br>- added non-blocking mode<br>- added method CancelRequest<br>- added timeout property<br>
+    - fixed several memory leaks<br>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>build 27: added http_agent_string variable.<br>
+&nbsp;</td>
+  </tr>
+  <tr>
+    <td>build 26:<b> </b>added support for streams and/or files uploading.<br>
+&nbsp;</td>
+  </tr>
+  <tr>
+    <td>build 25: added a cookies and response_headers TStringList's.<b><br>
+&nbsp;</b></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</blockquote>
+
+</td>
+  </tr>
+</table>
+  
+
+<p>&nbsp;</p>
+
+</body>
+
+</html>

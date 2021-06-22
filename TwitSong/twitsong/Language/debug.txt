@@ -1,0 +1,5 @@
+This is bug report :
+TwitLib http codes : 200
+http error terakhir :200
+TwitLib http codes : 200
+http error terakhir :200

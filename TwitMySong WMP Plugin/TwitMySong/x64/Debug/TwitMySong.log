@@ -1,0 +1,36 @@
+﻿Build started 7/1/2013 12:15:55 PM.
+     1>Project "C:\Users\angga\Dropbox\Projects\TwitMySong\TwitMySong WMP Plugin\TwitMySong\TwitMySong.vcxproj" on node 2 (build target(s)).
+     1>PrepareForBuild:
+         Creating directory "C:\Users\angga\Dropbox\Projects\TwitMySong\TwitMySong WMP Plugin\x64\Debug\".
+       InitializeBuildStatus:
+         Creating "x64\Debug\TwitMySong.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /Od /D WIN32 /D _WINDOWS /D _USRDLL /D _WINNT_WIN32=0x5000 /D _UNICODE /D UNICODE /D _WINDLL /D _UNICODE /D UNICODE /D _ATL_STATIC_REGISTRY /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"x64\Debug\TwitMySong.pch" /Fo"x64\Debug\\" /Fd"x64\Debug\vc100.pdb" /Gd /TP /errorReport:prompt StdAfx.cpp /D “_WIN32_WINNT=0×0601” 
+         StdAfx.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /Od /D WIN32 /D _WINDOWS /D _USRDLL /D _WINNT_WIN32=0x5000 /D _UNICODE /D UNICODE /D _WINDLL /D _UNICODE /D UNICODE /D _ATL_STATIC_REGISTRY /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"x64\Debug\TwitMySong.pch" /Fo"x64\Debug\\" /Fd"x64\Debug\vc100.pdb" /Gd /TP /errorReport:prompt TwitMySong.cpp TwitMySongdll.cpp TwitMySongevents.cpp /D “_WIN32_WINNT=0×0601” 
+         TwitMySongevents.cpp
+         TwitMySongdll.cpp
+         TwitMySong.cpp
+         Generating Code...
+       ResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D _UNICODE /D UNICODE /l"0x0409" /nologo /fo"x64\Debug\TwitMySong.res" TwitMySong.rc 
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\angga\Dropbox\Projects\TwitMySong\TwitMySong WMP Plugin\x64\Debug\TwitMySong.dll" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /DEF:"TwitMySong.def" /MANIFEST /ManifestFile:"x64\Debug\TwitMySong.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\angga\Dropbox\Projects\TwitMySong\TwitMySong WMP Plugin\x64\Debug\TwitMySong.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /BASE:"254803968" /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\angga\Dropbox\Projects\TwitMySong\TwitMySong WMP Plugin\x64\Debug\TwitMySong.lib" /MACHINE:X64 /DLL x64\Debug\TwitMySong.res
+         x64\Debug\StdAfx.obj
+         x64\Debug\TwitMySong.obj
+         x64\Debug\TwitMySongdll.obj
+         x64\Debug\TwitMySongevents.obj
+            Creating library C:\Users\angga\Dropbox\Projects\TwitMySong\TwitMySong WMP Plugin\x64\Debug\TwitMySong.lib and object C:\Users\angga\Dropbox\Projects\TwitMySong\TwitMySong WMP Plugin\x64\Debug\TwitMySong.exp
+         TwitMySong.vcxproj -> C:\Users\angga\Dropbox\Projects\TwitMySong\TwitMySong WMP Plugin\x64\Debug\TwitMySong.dll
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\angga\Dropbox\Projects\TwitMySong\TwitMySong WMP Plugin\x64\Debug\TwitMySong.dll;#2" /manifest x64\Debug\TwitMySong.dll.intermediate.manifest
+       RegisterOutput:
+         regsvr32 /s "C:\Users\angga\Dropbox\Projects\TwitMySong\TwitMySong WMP Plugin\x64\Debug\TwitMySong.dll"
+       FinalizeBuildStatus:
+         Deleting file "x64\Debug\TwitMySong.unsuccessfulbuild".
+         Touching "x64\Debug\TwitMySong.lastbuildstate".
+     1>Done Building Project "C:\Users\angga\Dropbox\Projects\TwitMySong\TwitMySong WMP Plugin\TwitMySong\TwitMySong.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:08.92
